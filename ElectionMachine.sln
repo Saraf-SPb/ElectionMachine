@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31605.320
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ElectionMachine", "ElectionMachine.csproj", "{26E70B5F-E9F4-449A-B2A9-FE14D8FB3E1C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ElectionMachine", "WinForms\ElectionMachine.csproj", "{26E70B5F-E9F4-449A-B2A9-FE14D8FB3E1C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ElectorateMachineServer", "..\ElectorateMachineServer\ElectorateMachineServer.csproj", "{3C8DC68C-0548-46DD-B1EB-3B1FB8BCAC4F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ElectorateMachineLib", "ElectorateMachineLib\ElectorateMachineLib.csproj", "{07A0BE5A-1B08-44A5-93DD-4085D2D0F284}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ElectorateMachineServer", "ElectorateMachineServer\ElectorateMachineServer.csproj", "{4D6CC30D-1D50-4F1C-813A-C8018EDD18DB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,10 +19,14 @@ Global
 		{26E70B5F-E9F4-449A-B2A9-FE14D8FB3E1C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{26E70B5F-E9F4-449A-B2A9-FE14D8FB3E1C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{26E70B5F-E9F4-449A-B2A9-FE14D8FB3E1C}.Release|Any CPU.Build.0 = Release|Any CPU
-		{3C8DC68C-0548-46DD-B1EB-3B1FB8BCAC4F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{3C8DC68C-0548-46DD-B1EB-3B1FB8BCAC4F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{3C8DC68C-0548-46DD-B1EB-3B1FB8BCAC4F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{3C8DC68C-0548-46DD-B1EB-3B1FB8BCAC4F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{07A0BE5A-1B08-44A5-93DD-4085D2D0F284}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{07A0BE5A-1B08-44A5-93DD-4085D2D0F284}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{07A0BE5A-1B08-44A5-93DD-4085D2D0F284}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{07A0BE5A-1B08-44A5-93DD-4085D2D0F284}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4D6CC30D-1D50-4F1C-813A-C8018EDD18DB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4D6CC30D-1D50-4F1C-813A-C8018EDD18DB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4D6CC30D-1D50-4F1C-813A-C8018EDD18DB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4D6CC30D-1D50-4F1C-813A-C8018EDD18DB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

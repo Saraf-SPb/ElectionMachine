@@ -1,0 +1,15 @@
+C:\Users\filon\source\repos\ElectionMachine\ElectorateMachineLib\obj\Debug\ElectorateMachineLib.csproj.CoreCompileInputs.cache
+C:\Users\filon\source\repos\ElectionMachine\ElectorateMachineLib\bin\Debug\ElectorateMachineLib.dll.config
+C:\Users\filon\source\repos\ElectionMachine\ElectorateMachineLib\bin\Debug\ElectorateMachineLib.dll
+C:\Users\filon\source\repos\ElectionMachine\ElectorateMachineLib\bin\Debug\ElectorateMachineLib.pdb
+C:\Users\filon\source\repos\ElectionMachine\ElectorateMachineLib\obj\Debug\ElectorateMachineLib.dll
+C:\Users\filon\source\repos\ElectionMachine\ElectorateMachineLib\obj\Debug\ElectorateMachineLib.pdb
+C:\Users\filon\source\repos\ElectionMachine\ElectorateMachineLib\bin\Debug\EntityFramework.dll
+C:\Users\filon\source\repos\ElectionMachine\ElectorateMachineLib\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\filon\source\repos\ElectionMachine\ElectorateMachineLib\bin\Debug\EntityFramework.xml
+C:\Users\filon\source\repos\ElectionMachine\ElectorateMachineLib\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\filon\source\repos\ElectionMachine\ElectorateMachineLib\obj\Debug\ElectorateMachineLib.csproj.CopyComplete
+C:\Users\filon\source\repos\ElectionMachine\ElectorateMachineLib\bin\Debug\System.Data.SQLite.dll
+C:\Users\filon\source\repos\ElectionMachine\ElectorateMachineLib\bin\Debug\System.Data.SQLite.EF6.dll
+C:\Users\filon\source\repos\ElectionMachine\ElectorateMachineLib\bin\Debug\System.Data.SQLite.Linq.dll
+C:\Users\filon\source\repos\ElectionMachine\ElectorateMachineLib\bin\Debug\System.Data.SQLite.xml
