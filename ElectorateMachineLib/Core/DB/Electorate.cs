@@ -4,7 +4,7 @@ namespace ElectionMachine.Core.DB
 {
     public class Electorate
     {
-        public int ID { get; set; }
+        public int Id { get; set; }
         public string FIO { get; set; }
         public DateTime CreateDate { get; set; }
         public int UserId { get; set; }

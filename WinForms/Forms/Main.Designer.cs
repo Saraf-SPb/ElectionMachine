@@ -36,6 +36,8 @@ namespace ElectionMachine.Forms
             this.panel1 = new System.Windows.Forms.Panel();
             this.electoratDGV = new System.Windows.Forms.DataGridView();
             this.btAdd = new System.Windows.Forms.Button();
+            this.btUsers = new System.Windows.Forms.Button();
+            this.tbExport = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.electoratDGV)).BeginInit();
             this.SuspendLayout();
@@ -43,34 +45,38 @@ namespace ElectionMachine.Forms
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 9);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label1.Location = new System.Drawing.Point(17, 56);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(34, 13);
+            this.label1.Size = new System.Drawing.Size(47, 20);
             this.label1.TabIndex = 0;
             this.label1.Text = "ФИО";
             // 
             // tbFIO
             // 
-            this.tbFIO.Location = new System.Drawing.Point(80, 6);
+            this.tbFIO.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.tbFIO.Location = new System.Drawing.Point(80, 53);
             this.tbFIO.Name = "tbFIO";
-            this.tbFIO.Size = new System.Drawing.Size(308, 20);
-            this.tbFIO.TabIndex = 1;
+            this.tbFIO.Size = new System.Drawing.Size(308, 26);
+            this.tbFIO.TabIndex = 0;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(12, 39);
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label2.Location = new System.Drawing.Point(409, 56);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(52, 13);
+            this.label2.Size = new System.Drawing.Size(79, 20);
             this.label2.TabIndex = 2;
             this.label2.Text = "Телефон";
             // 
             // tbPhone
             // 
-            this.tbPhone.Location = new System.Drawing.Point(80, 32);
+            this.tbPhone.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.tbPhone.Location = new System.Drawing.Point(490, 53);
             this.tbPhone.Name = "tbPhone";
-            this.tbPhone.Size = new System.Drawing.Size(308, 20);
-            this.tbPhone.TabIndex = 3;
+            this.tbPhone.Size = new System.Drawing.Size(171, 26);
+            this.tbPhone.TabIndex = 1;
             // 
             // panel1
             // 
@@ -78,9 +84,9 @@ namespace ElectionMachine.Forms
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.Controls.Add(this.electoratDGV);
-            this.panel1.Location = new System.Drawing.Point(15, 58);
+            this.panel1.Location = new System.Drawing.Point(15, 129);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(773, 380);
+            this.panel1.Size = new System.Drawing.Size(981, 588);
             this.panel1.TabIndex = 4;
             // 
             // electoratDGV
@@ -92,33 +98,61 @@ namespace ElectionMachine.Forms
             this.electoratDGV.Location = new System.Drawing.Point(0, 0);
             this.electoratDGV.Name = "electoratDGV";
             this.electoratDGV.ReadOnly = true;
-            this.electoratDGV.Size = new System.Drawing.Size(773, 380);
+            this.electoratDGV.Size = new System.Drawing.Size(981, 588);
             this.electoratDGV.TabIndex = 0;
             // 
             // btAdd
             // 
-            this.btAdd.Location = new System.Drawing.Point(414, 30);
+            this.btAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btAdd.Location = new System.Drawing.Point(699, 53);
             this.btAdd.Name = "btAdd";
-            this.btAdd.Size = new System.Drawing.Size(75, 23);
-            this.btAdd.TabIndex = 1;
+            this.btAdd.Size = new System.Drawing.Size(100, 27);
+            this.btAdd.TabIndex = 2;
             this.btAdd.Text = "Добавить";
             this.btAdd.UseVisualStyleBackColor = true;
             this.btAdd.Click += new System.EventHandler(this.btAdd_Click);
             // 
+            // btUsers
+            // 
+            this.btUsers.Location = new System.Drawing.Point(896, 56);
+            this.btUsers.Name = "btUsers";
+            this.btUsers.Size = new System.Drawing.Size(100, 23);
+            this.btUsers.TabIndex = 6;
+            this.btUsers.Text = "Пользователи";
+            this.btUsers.UseVisualStyleBackColor = true;
+            this.btUsers.Visible = false;
+            this.btUsers.Click += new System.EventHandler(this.btUsers_Click);
+            // 
+            // tbExport
+            // 
+            this.tbExport.Location = new System.Drawing.Point(815, 56);
+            this.tbExport.Name = "tbExport";
+            this.tbExport.Size = new System.Drawing.Size(75, 23);
+            this.tbExport.TabIndex = 7;
+            this.tbExport.Text = "Экспорт";
+            this.tbExport.UseVisualStyleBackColor = true;
+            this.tbExport.Visible = false;
+            this.tbExport.Click += new System.EventHandler(this.tbExport_Click);
+            // 
             // Main
             // 
+            this.AcceptButton = this.btAdd;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1008, 729);
+            this.Controls.Add(this.tbExport);
+            this.Controls.Add(this.btUsers);
             this.Controls.Add(this.btAdd);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.tbPhone);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.tbFIO);
             this.Controls.Add(this.label1);
+            this.KeyPreview = true;
             this.Name = "Main";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = " ";
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Main_KeyDown);
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.electoratDGV)).EndInit();
             this.ResumeLayout(false);
@@ -135,6 +169,8 @@ namespace ElectionMachine.Forms
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.DataGridView electoratDGV;
         private System.Windows.Forms.Button btAdd;
+        private System.Windows.Forms.Button btUsers;
+        private System.Windows.Forms.Button tbExport;
     }
 }
 

@@ -13,3 +13,4 @@ C:\Users\filon\source\repos\ElectionMachine\ElectorateMachineLib\bin\Debug\Syste
 C:\Users\filon\source\repos\ElectionMachine\ElectorateMachineLib\bin\Debug\System.Data.SQLite.EF6.dll
 C:\Users\filon\source\repos\ElectionMachine\ElectorateMachineLib\bin\Debug\System.Data.SQLite.Linq.dll
 C:\Users\filon\source\repos\ElectionMachine\ElectorateMachineLib\bin\Debug\System.Data.SQLite.xml
+C:\Users\filon\source\repos\ElectionMachine\ElectorateMachineLib\obj\Debug\ElectorateMachineLib.csproj.AssemblyReference.cache

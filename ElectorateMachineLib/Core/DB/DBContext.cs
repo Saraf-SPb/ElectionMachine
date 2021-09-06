@@ -4,7 +4,7 @@ using System.Data.SQLite;
 
 namespace ElectionMachine.Core.DB
 {
-    class DBContext : DbContext
+    public class DBContext : DbContext
     {
         //public DBContext() : base("ElectionMachineConnectionString")
         //{

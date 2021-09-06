@@ -14,14 +14,18 @@ namespace ElectionMachine
         [OperationContract]
         int GetMultiPly(int a, int b);
         [OperationContract]
-        User Auth(string login, string password);
+        (User, string) Auth(string login, string password);
         [OperationContract]
-        string AddElectorat(string fio, string phone, int userId, string baseName);
+        string AddElectorat(string fio, string phone, int userId);
         [OperationContract]
         List<ElectorateWithUserName> GetAllElectorateList();
         [OperationContract]
         int Amount();
         [OperationContract]
         Electorate GetElectorate(int id);
+        [OperationContract]
+        List<User> GetAllUsers();
+        [OperationContract]
+        string SaveUsers(List<User> usersLIst);
     }
 }
