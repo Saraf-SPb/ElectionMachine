@@ -1,7 +1,6 @@
 ﻿using ElectionMachine.Core.DB;
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Windows.Forms;
 
 namespace ElectionMachine.Forms
@@ -22,17 +21,17 @@ namespace ElectionMachine.Forms
             UsersDGV.Columns["Name"].HeaderText = "Имя оператора";
             UsersDGV.Columns["Login"].HeaderText = "Логин";
             UsersDGV.Columns["Password"].HeaderText = "Пароль";
-            UsersDGV.Columns["IsAdmin"].HeaderText = "Админ?";            
+            UsersDGV.Columns["IsAdmin"].HeaderText = "Админ?";
             UsersDGV.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
         }
 
-        private void tbSave_Click(object sender, EventArgs e)
+        private void BtSave_Click(object sender, EventArgs e)
         {
             List<User> users = new List<User>();
             foreach (DataGridViewRow row in UsersDGV.Rows)
             {
                 if (row.Cells["Login"].Value != null)
-                {                    
+                {
                     User temp = new User
                     {
                         Id = (int)row.Cells["Id"].Value,
@@ -41,12 +40,11 @@ namespace ElectionMachine.Forms
                         Password = row.Cells["Password"].Value.ToString(),
                         IsAdmin = (bool)row.Cells["isAdmin"].Value
                     };
-
                     users.Add(temp);
                 }
             }
             MessageBox.Show(Program.service.SaveUsers(users));
-            
+
             var userList = Program.service.GetAllUsers();
             userList.Add(new User());
             UsersDGV.DataSource = userList;

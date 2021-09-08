@@ -1,5 +1,6 @@
 ﻿using ElectionMachine.Core.Models;
 using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -9,7 +10,7 @@ namespace ElectionMachine.Forms
 {
     public partial class Main : Form
     {
-        private BindingSource BindingSource = new BindingSource();
+        private readonly BindingSource BindingSource = new BindingSource();
         public Main()
         {
             InitializeComponent();
@@ -18,10 +19,10 @@ namespace ElectionMachine.Forms
                 btUsers.Visible = true;
                 tbExport.Visible = true;
             }
-            var temp = Program.service.GetAllElectorateList();
-            if (temp.Count() == 0)
-                temp.Add(new ElectorateWithUserName());
-            BindingSource.DataSource = temp.OrderByDescending(i => i.CreateDate);
+            var tempElectorateList = Program.service.GetAllElectorateList();
+            if (tempElectorateList.Count() == 0)
+                tempElectorateList.Add(new ElectorateWithUserName());
+            BindingSource.DataSource = tempElectorateList.OrderByDescending(i => i.CreateDate);
 
             electoratDGV.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             electoratDGV.DataSource = BindingSource;
@@ -38,7 +39,7 @@ namespace ElectionMachine.Forms
 
         }
 
-        private void btAdd_Click(object sender, EventArgs e)
+        private void BtAdd_Click(object sender, EventArgs e)
         {
             MessageBox.Show(
                 Program.service.AddElectorat(tbFIO.Text, tbPhone.Text, Program.GlobalUser.Id),
@@ -67,12 +68,12 @@ namespace ElectionMachine.Forms
             BindingSource.ResetBindings(false);
         }
 
-        private void btUsers_Click(object sender, EventArgs e)
+        private void BtUsers_Click(object sender, EventArgs e)
         {
             Users users = new Users();
-            this.Hide();
+            Hide();
             users.ShowDialog();
-            this.Show();
+            Show();
         }
 
         private void Main_KeyDown(object sender, KeyEventArgs e)
@@ -80,29 +81,22 @@ namespace ElectionMachine.Forms
 
         }
 
-        private void tbExport_Click(object sender, EventArgs e)
+        private void BtExport_Click(object sender, EventArgs e)
         {
             try
             {
-                //before your loop
                 var csv = new StringBuilder();
-
-                System.Collections.Generic.List<ElectorateWithUserName> electorates = Program.service.GetAllElectorateList();
+                List<ElectorateWithUserName> electorates = Program.service.GetAllElectorateList();
 
                 foreach (var el in electorates)
                 {
-                    //in your loop
-                    var fio = el.FIO;
-                    var phone = el.Phone;
-                    var username = el.UserName;
-                    var createdate = el.CreateDate;
-                    //Suggestion made by KyleMit
-                    var newLine = string.Format($"{fio};{phone};{username};{createdate}");
+                    var newLine = string.Format($"{el.FIO};{el.Phone};{el.UserName};{el.CreateDate}");
                     csv.AppendLine(newLine);
                 }
                 File.WriteAllText(@"export.csv", csv.ToString(), Encoding.Unicode);
                 MessageBox.Show("Экспорт успешно завершен. Файл export.csv лежит в папке с программой");
-            } catch (Exception ex)
+            }
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }

@@ -12,14 +12,6 @@ namespace ElectionMachine
     public class TransferObject : ITransferObject
     {
         DBContext db;
-        public int GetSum(int a, int b)
-        {
-            return a + b;
-        }
-        public int GetMultiPly(int a, int b)
-        {
-            return a * b;
-        }
 
         public (User, string) Auth(string login, string password)
         {
@@ -39,89 +31,39 @@ namespace ElectionMachine
             try
             {
                 db = new DBContext();
-
-                ElectorateWithUserName electorateWithUserName = new ElectorateWithUserName();
-
                 List<Electorate> electorates = db.Electorates.ToList();
 
-                bool f = false;
-
-
+                /* 
+                 * Из-за особенности работы SQLite с кириллицей приходится делать костыль.
+                 * Переводя в LINQ-запросе сравниваемые значения в нижний регистр, на сторое SQLite
+                 * в запросе все равно присутствуют буквы разного регистра. 
+                 * С латиницей работает нормально, проблема наблюдается только с кириллицей.
+                */
                 foreach (var el in electorates)
                 {
                     if (el.FIO.Equals(fio, StringComparison.OrdinalIgnoreCase))
                     {
-                        var temp = db.Users.FirstOrDefault(u => u.Id == el.UserId);
+                        var tempUser = db.Users.FirstOrDefault(u => u.Id == el.UserId);
 
-                        electorateWithUserName.FIO = el.FIO;
-                        electorateWithUserName.CreateDate = el.CreateDate;
-                        electorateWithUserName.UserName = temp.Name;
-                        f = true;
+                        return $"{el.FIO} был добавлен оператором {tempUser.Name} "
+                            + $"{el.CreateDate}";
                     }
                 }
 
-
-                //var electorate = db.Electorates.Where(e => e.FIO.ToLower() == fio.ToLower()).FirstOrDefault();
-
-                //var electorate = (from e in db.Electorates
-                //                  //join u in db.Users on e.UserId equals u.Id
-                //                  where e.FIO.Equals(fio, StringComparison.OrdinalIgnoreCase)
-                //                  select e).FirstOrDefault()
-                //                 //select new { FIO = e.FIO, Phone = e.Phone, CreateDate = e.CreateDate, UserName = u.Name })                                  
-                //                 ;                
-
-                //var electorate = db.Electorates.Where(e => e.FIO.Equals(fio, StringComparison.OrdinalIgnoreCase)).Join(db.Users,
-                //    e => e.UserId,
-                //    u => u.Id,
-                //    (e, u) => new
-                //    {
-                //        e.FIO,
-                //        e.Phone,
-                //        e.CreateDate,
-                //        u.Name
-                //    }).FirstOrDefault();
-
-                if (f == false)
+                db.Electorates.Add(new Electorate()
                 {
-                    //SQLiteConnection.CreateFile(baseName);
-
-                    //SQLiteFactory factory = (SQLiteFactory)DbProviderFactories.GetFactory("System.Data.SQLite");
-                    //using (SQLiteConnection connection = (SQLiteConnection)factory.CreateConnection())
-                    //{
-                    //    connection.ConnectionString = "Data Source = " + baseName;
-                    //    connection.Open();
-
-                    //    using (SQLiteCommand command = new SQLiteCommand(connection))
-                    //    {
-                    //        command.CommandText = $@"INSERT INTO electorates (fio, phone, userid, createdate) 
-                    //            VALUES ('{fio}','{phone}',{userId}, '{DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss")}')";
-                    //        command.CommandType = CommandType.Text;
-                    //        command.ExecuteNonQuery();
-                    //    }
-                    //}
-
-                    db.Electorates.Add(new Electorate()
-                    {
-                        FIO = fio,
-                        Phone = phone,
-                        CreateDate = DateTime.Now,
-                        UserId = userId
-                    });
-                    db.SaveChanges();
-                    return $"{fio} успешно добавлен.";
-                }
-                else
-                {
-                    //return $"{fio} был добавлен оператором {electorate.Name} {electorate.FirstOrDefault().CreateDate}";
-                    return $"{fio} был добавлен оператором {electorateWithUserName.UserName} " +
-                        $"{electorateWithUserName.CreateDate}";
-                }
-
-                //electorate = db.Electorates.Where(e => e.FIO == fio).FirstOrDefault();
+                    FIO = fio,
+                    Phone = phone,
+                    CreateDate = DateTime.Now,
+                    UserId = userId
+                });
+                db.SaveChanges();
+                return $"{fio} успешно добавлен.";
             }
             catch (Exception ex)
             {
-                return "Ошибка при работе с базой данных." + Environment.NewLine + ex.Message + Environment.NewLine
+                return "Ошибка при работе с базой данных." + Environment.NewLine
+                    + ex.Message + Environment.NewLine
                     + ex.InnerException;
             }
         }
@@ -143,6 +85,7 @@ namespace ElectionMachine
                         e.CreateDate
                     }
                     ).ToList();
+
                 List<ElectorateWithUserName> ElectorateWithUserName = new List<ElectorateWithUserName>();
                 foreach (var i in list)
                 {
@@ -153,21 +96,14 @@ namespace ElectionMachine
                             Phone = i.Phone,
                             UserName = i.UserName,
                             CreateDate = i.CreateDate
-                        }
-                        );
+                        });
                 }
                 return ElectorateWithUserName;
             }
-            catch (Exception ex)
+            catch
             {
                 return new List<ElectorateWithUserName>();
             }
-        }
-
-        public int Amount()
-        {
-            db = new DBContext();
-            return db.Users.Count();
         }
 
         public Electorate GetElectorate(int id)
@@ -189,6 +125,11 @@ namespace ElectionMachine
                 db = new DBContext();
                 User tempUser = new User();
                 List<User> users = db.Users.ToList();
+
+                /* В цикле делается сопоставление записей из DGV с данными в БД по Id.
+                 * Если Id в DGV отсутствует, то запись добавляется в БД.
+                 * Удаление отсутствует по требованию заказчика.
+                 */
                 foreach (User u in usersLIst)
                 {
                     tempUser = null;

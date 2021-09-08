@@ -15,7 +15,7 @@ namespace ElectionMachine.Core
             {
                 return db.Users.Where(u => u.Login == login && u.Password == password).FirstOrDefault(); ;
             }
-            catch (Exception ex)
+            catch
             {
                 return null;
             }

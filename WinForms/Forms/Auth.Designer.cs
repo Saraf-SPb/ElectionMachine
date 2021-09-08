@@ -78,7 +78,7 @@ namespace ElectionMachine.Forms
             this.btOK.TabIndex = 4;
             this.btOK.Text = "ОК";
             this.btOK.UseVisualStyleBackColor = true;
-            this.btOK.Click += new System.EventHandler(this.btOK_Click);
+            this.btOK.Click += new System.EventHandler(this.BtOK_Click);
             // 
             // btCancel
             // 
@@ -89,7 +89,7 @@ namespace ElectionMachine.Forms
             this.btCancel.TabIndex = 5;
             this.btCancel.Text = "Отмена";
             this.btCancel.UseVisualStyleBackColor = true;
-            this.btCancel.Click += new System.EventHandler(this.btCancel_Click);
+            this.btCancel.Click += new System.EventHandler(this.BtCancel_Click);
             // 
             // Auth
             // 

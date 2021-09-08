@@ -68,7 +68,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Core\DBHelper.cs" />
     <Compile Include="Core\DB\DBContext.cs" />
     <Compile Include="Core\DB\Electorate.cs" />
     <Compile Include="Core\DB\User.cs" />

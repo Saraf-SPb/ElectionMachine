@@ -110,7 +110,7 @@ namespace ElectionMachine.Forms
             this.btAdd.TabIndex = 2;
             this.btAdd.Text = "Добавить";
             this.btAdd.UseVisualStyleBackColor = true;
-            this.btAdd.Click += new System.EventHandler(this.btAdd_Click);
+            this.btAdd.Click += new System.EventHandler(this.BtAdd_Click);
             // 
             // btUsers
             // 
@@ -121,7 +121,7 @@ namespace ElectionMachine.Forms
             this.btUsers.Text = "Пользователи";
             this.btUsers.UseVisualStyleBackColor = true;
             this.btUsers.Visible = false;
-            this.btUsers.Click += new System.EventHandler(this.btUsers_Click);
+            this.btUsers.Click += new System.EventHandler(this.BtUsers_Click);
             // 
             // tbExport
             // 
@@ -132,7 +132,7 @@ namespace ElectionMachine.Forms
             this.tbExport.Text = "Экспорт";
             this.tbExport.UseVisualStyleBackColor = true;
             this.tbExport.Visible = false;
-            this.tbExport.Click += new System.EventHandler(this.tbExport_Click);
+            this.tbExport.Click += new System.EventHandler(this.TbExport_Click);
             // 
             // Main
             // 

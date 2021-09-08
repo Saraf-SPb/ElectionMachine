@@ -65,7 +65,7 @@ namespace ElectionMachine.Forms
             this.tbSave.TabIndex = 1;
             this.tbSave.Text = "Сохранить";
             this.tbSave.UseVisualStyleBackColor = true;
-            this.tbSave.Click += new System.EventHandler(this.tbSave_Click);
+            this.tbSave.Click += new System.EventHandler(this.BtSave_Click);
             // 
             // Users
             // 

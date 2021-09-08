@@ -10,17 +10,16 @@ namespace ElectionMachine.Forms
             InitializeComponent();            
         }
 
-        private void btOK_Click(object sender, EventArgs e)
+        private void BtOK_Click(object sender, EventArgs e)
         {
             try
             {
-                var authResult = Program.service.Auth(tbLogin.Text, tbPassword.Text);
-                Program.GlobalUser = authResult.Item1;
-                //Program.GlobalUser = DBHelper.Auth(tbLogin.Text, tbPassword.Text);
+                (Core.DB.User, string) authResult = Program.service.Auth(tbLogin.Text, tbPassword.Text);
+                Program.GlobalUser = authResult.Item1;                
                 if (Program.GlobalUser != null)
                 {                    
                     Main main = new Main();
-                    this.Hide();
+                    Hide();
                     main.ShowDialog();
                     Application.Exit();
                 }
@@ -38,7 +37,7 @@ namespace ElectionMachine.Forms
             }
         }
 
-        private void btCancel_Click(object sender, EventArgs e)
+        private void BtCancel_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
