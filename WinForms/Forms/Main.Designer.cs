@@ -132,7 +132,7 @@ namespace ElectionMachine.Forms
             this.tbExport.Text = "Экспорт";
             this.tbExport.UseVisualStyleBackColor = true;
             this.tbExport.Visible = false;
-            this.tbExport.Click += new System.EventHandler(this.TbExport_Click);
+            this.tbExport.Click += new System.EventHandler(this.BtExport_Click);
             // 
             // Main
             // 

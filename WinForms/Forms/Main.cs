@@ -81,6 +81,8 @@ namespace ElectionMachine.Forms
 
         }
 
+
+
         private void BtExport_Click(object sender, EventArgs e)
         {
             try
@@ -100,7 +102,6 @@ namespace ElectionMachine.Forms
             {
                 MessageBox.Show(ex.Message);
             }
-
         }
     }
 }

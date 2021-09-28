@@ -18,6 +18,8 @@ namespace ElectorateMachineServer
                 var host = new ServiceHost(typeof(TransferObject), new Uri($"net.tcp://{serviceAddress}/{serviceName}"));
                 var serverBinding = new NetTcpBinding();
                 serverBinding.Security.Mode = SecurityMode.None;
+                serverBinding.MaxReceivedMessageSize = int.MaxValue;
+                serverBinding.MaxBufferPoolSize = int.MaxValue;
                 host.AddServiceEndpoint(typeof(ITransferObject), serverBinding, "");
                 host.Open();
                 Console.WriteLine($"{DateTime.Now}: Service started...");

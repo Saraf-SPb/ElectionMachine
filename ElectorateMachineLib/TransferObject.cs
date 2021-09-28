@@ -54,7 +54,7 @@ namespace ElectionMachine
                 {
                     FIO = fio,
                     Phone = phone,
-                    CreateDate = DateTime.Now,
+                    CreateDate = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"),
                     UserId = userId
                 });
                 db.SaveChanges();

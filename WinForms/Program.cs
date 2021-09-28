@@ -32,6 +32,8 @@ namespace ElectionMachine
                 EndpointAddress address = new EndpointAddress(tcpUri);
                 NetTcpBinding clientBinding = new NetTcpBinding();
                 clientBinding.Security.Mode = SecurityMode.None;
+                clientBinding.MaxReceivedMessageSize = int.MaxValue;
+                clientBinding.MaxBufferPoolSize = int.MaxValue;
                 ChannelFactory<ITransferObject> factory = new ChannelFactory<ITransferObject>(clientBinding, address);
                 service = factory.CreateChannel();
             }
